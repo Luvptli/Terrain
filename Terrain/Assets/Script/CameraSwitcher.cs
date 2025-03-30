@@ -7,7 +7,6 @@ public class CameraSwitcher : MonoBehaviour
 
     void Start()
     {
-        // Desactiva todas las cámaras excepto la primera
         for (int i = 0; i < cameras.Length; i++)
         {
             cameras[i].gameObject.SetActive(i == currentCameraIndex);
@@ -16,13 +15,11 @@ public class CameraSwitcher : MonoBehaviour
 
     void Update()
     {
-        // Cambio con teclas numéricas
         if (Input.GetKeyDown(KeyCode.Alpha1)) SwitchCamera(0);
         if (Input.GetKeyDown(KeyCode.Alpha2)) SwitchCamera(1);
         if (Input.GetKeyDown(KeyCode.Alpha3)) SwitchCamera(2);
         if (Input.GetKeyDown(KeyCode.Alpha4)) SwitchCamera(3);
 
-        // Cambio con flechas
         if (Input.GetKeyDown(KeyCode.LeftArrow)) SwitchCamera((currentCameraIndex - 1 + cameras.Length) % cameras.Length);
         if (Input.GetKeyDown(KeyCode.RightArrow)) SwitchCamera((currentCameraIndex + 1) % cameras.Length);
     }
